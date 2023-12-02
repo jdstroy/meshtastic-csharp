@@ -27,7 +27,7 @@ public class SendTextCommandHandler : DeviceCommandHandler
     {
         var textMessageFactory = new TextMessageFactory(container);
         var textMessage = textMessageFactory.CreateTextMessagePacket(message);
-        Logger.LogInformation($"Sending text messagee...");
+        Logger.LogInformation($"Sending text message...");
 
         await Connection.WriteToRadio(ToRadioMessageFactory.CreateMeshPacketMessage(textMessage),
              (fromRadio, container) =>

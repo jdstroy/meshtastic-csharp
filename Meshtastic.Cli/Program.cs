@@ -65,6 +65,7 @@ root.AddCommand(new MqttProxyCommand("mqtt-proxy", "Proxy to the MQTT server ref
 root.AddCommand(new RequestTelemetryCommand("request-telemetry", "Request a telemetry packet from a repeater by nodenum", port, host, output, log, dest, selectDest));
 root.AddCommand(new DfuCommand("dfu", "Enter (Uf2) DFU mode on NRF52 devices", port, host, output, log, dest, selectDest));
 //root.AddCommand(new CaptureCommand("capture", "Capture all of the FromRadio messages for the device and store in MongoDB instance", port, host, output, log));
+root.AddCommand(new TunnelCommand("tunnel", "Starts a tunnel", port, host, output, log));
 
 var parser = new CommandLineBuilder(root)
     .UseExceptionHandler((ex, context) =>

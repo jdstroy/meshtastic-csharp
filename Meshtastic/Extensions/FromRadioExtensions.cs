@@ -1,4 +1,5 @@
-﻿using Meshtastic.Data.MessageFactories;
+﻿using Google.Protobuf;
+using Meshtastic.Data.MessageFactories;
 using Meshtastic.Protobufs;
 
 namespace Meshtastic.Extensions;
@@ -40,6 +41,9 @@ public static class FromRadioExtensions
 
         else if (typeof(TResult) == typeof(Waypoint) && fromRadio.Packet?.Decoded?.Portnum == PortNum.WaypointApp)
             return NodeInfo.Parser.ParseFrom(fromRadio.Packet?.Decoded?.Payload) as TResult;
+
+        else if (typeof(TResult) == typeof(ByteString) && fromRadio.Packet?.Decoded.Portnum == PortNum.IpTunnelApp)
+            return fromRadio.Packet.Decoded.Payload as TResult;
 
         else if (typeof(TResult) == typeof(string) && fromRadio.Packet?.Decoded?.Portnum == PortNum.TextMessageApp)
             return fromRadio.Packet?.Decoded?.Payload.ToStringUtf8() as TResult;

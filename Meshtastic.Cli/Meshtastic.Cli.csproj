@@ -57,6 +57,13 @@
 
 
   <ItemGroup>
+    <Reference Include="SharpTun">
+      <HintPath>..\..\SharpTun\SharpTun\bin\Debug\net6.0\SharpTun.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+
+  <ItemGroup>
     <Using Include="Spectre.Console" />
     <Using Include="System.CommandLine" />
   </ItemGroup>
